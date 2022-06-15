@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+.white {
+    background-color: white;
+}
+
+.black {
+    background-color: black;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.green {
+    background-color: green;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+body {
+    background-color: rgba(243, 231, 231, 0.938);
+}
+
+
+/***********************
+ * Essential Structure *
+ ***********************/
+
+.flexsearch--wrapper {
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    position: static;
+}
+
+@media (min-width: 768px) {
+    .flexsearch--wrapper {
+        width: 25vw;
+    }
+}
+
+.flexsearch--form {
+    overflow: hidden;
+    position: relative;
+}
+
+.flexsearch--input-wrapper {
+    padding: 0 66px 0 0;
+    /* Right padding for submit button width */
+    overflow: hidden;
+    width: 100%;
+}
+
+.flexsearch--input {
+    width: 100%;
+}
+
+
+/***********************
+ * Configurable Styles *
+ ***********************/
+
+.flexsearch--input {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 2px 46px 0 10px;
+    border-color: #888;
+    border-radius: 35px;
+    /* (height/2) + border-width */
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 5px;
+    color: #333;
+    font-family: "Helvetica", sans-serif;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.flexsearch--submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 60px;
+    padding: 0;
+    border: none;
+    margin-top: -10px;
+    /* margin-top + border-width */
+    margin-right: 5px;
+    /* border-width */
+    background: transparent;
+    color: #888;
+    font-family: "Helvetica", sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+}
+
+.flexsearch--input:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.flexsearch--input:focus.flexsearch--submit {
+    color: #333;
+}
+
+.flexsearch--submit:hover {
+    color: #333;
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+    color: #888;
+}
+
+input:-moz-placeholder {
+    color: #888;
+}
+
+
+/****************
+ * Pretify demo *
+ ****************/
+
+.h1 {
+    float: left;
+    margin: 25px;
+    color: #333;
+    font-family: "Helvetica", sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 45px;
+    text-align: center;
+}
+
+
+/**** -Estilos Header.blade.php- ****/
+
+#header-nav {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    background-image: url("/img/banner_header2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+}
+
+#header-nav .navbar-brand {
+    display: flex;
+}
+
+@media (min-width: 1800px) {
+    #header-nav .navbar-brand {
+        margin-left: -6em;
+    }
+}
+
+#header-nav .navbar-brand .titulo {
+    display: inline;
+    font-size: 0.8rem;
+}
+
+#header-nav .flexsearch {
+    display: flex;
+    justify-content: center;
+    font-size: 0.6rem;
+    margin: 1em;
+}
+
+@media (min-width: 768px) {
+    #header-nav .flexsearch {
+        margin-left: 20em;
+    }
+}
+
+#header-nav .flexsearch .flexsearch--wrapper {
+    margin-left: 1rem;
+}
+
+#header-nav .flexsearch .flexsearch--wrapper .flexsearch--form {
+    display: flex;
+}
+
+#header-nav .navbar-toggler {
+    margin-left: 2rem;
+}
+
+#header-nav .show {
+    text-align: center;
+}
+
+#header-nav .nav-item .bxs-user-circle {
+    margin: 0.25em;
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+}
+
+#header-nav .dropdown-item {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#header-nav .dropdown-item .bx-log-out {
+    font-size: 24px;
+}
+
+#logotipo {
+    width: 10em;
+    height: 5em;
+}
+
+
+/**** -Fin de estilos Header.blade.php- ****/
+
+
+/**** -Estilos para Imagen.blade.php- ****/
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    #main-container {
+        display: grid;
+        grid-template-areas: "imagen informacion " "recomendados recomendados " "result result ";
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #main-container {
+        grid-template-columns: 40% 50%;
+        grid-column-gap: 10%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #main-container {
+        grid-template-columns: 55% 25%;
+        grid-column-gap: 15%;
+    }
+}
+
+#main-container #imagen {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0.75em;
+    margin-bottom: 0.5em;
+    padding: 0.05em;
+}
+
+#main-container #imagen img {
+    height: 100%;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #main-container #imagen {
+        height: 65vh;
+    }
+}
+
+#main-container .info-container {
+    border: 1px solid black;
+    background-color: #d3e6e4;
+    grid-area: informacion;
+}
+
+@media (min-width: 1024px) {
+    #main-container .info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+#main-container .info-container .propiedades {
+    margin-top: 1em;
+}
+
+#main-container .info-container .propiedades ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#main-container .info-container .propiedades ul li {
+    display: grid;
+    grid-template-areas: "nombre dato";
+    grid-template-columns: 25% 75%;
+    grid-column-gap: 0.25em;
+    list-style: none;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+}
+
+#main-container .info-container .propiedades ul li .nombre {
+    grid-area: nombre;
+    text-align: right;
+}
+
+#main-container .info-container .propiedades ul li .dato {
+    background-color: #f0eaea;
+    border: 1px solid black;
+    font-size: 14px;
+    grid-area: dato;
+    padding: 0.25em;
+    text-align: left;
+}
+
+#main-container .info-container .botones {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 1em;
+}
+
+#main-container .info-container .botones i {
+    margin-left: 0.5em;
+}
+
+#main-container .info-container .botones button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin: 1em;
+    padding: 0.25em;
+    width: 100%;
+    background-color: #f0eaea;
+}
+
+#main-container #recomendados {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    grid-area: recomendados;
+    text-align: center;
+    margin: 1em;
+}
+
+
+/**** -Fin de estilos para Imagen.blade.php- ****/
+
+
+/**** -Estilos para todos login.blade.php y register.blade.php- ****/
+
+#login_registro {
+    border: 1px solid black;
+}
+
+#login_registro .card-header {
+    background-color: #dad8d8;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+#login_registro .mb-0 {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    #login_registro .mb-0 {
+        text-align: left;
+        width: 100%;
+    }
+    #login_registro .mb-0 .offset-md-4 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-left: 25%;
+    }
+}
+
+
+/**** -Fin estilos para todos login.blade.php y register.blade.php- ****/
+
+
+/**** -Estilos de Footer.blade.php- ****/
+
+.pie {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    height: 5em;
+    width: 100vw;
+    padding-top: 1em;
+}
+
+.pie span {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.pie .redes_sociales {
+    font-size: 25px;
+}
+
+
+/**** -Fin de estilos de Footer.blade.php- ****/
+
+
+/*# sourceMappingURL=index.css.map */
