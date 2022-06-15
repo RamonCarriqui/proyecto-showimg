@@ -142,4 +142,15 @@ class ProfileController extends Controller
 
 
   }
+
+  static function getName(){
+    $uid = Session::get('uid');
+    $user = app('firebase.auth')->getUser($uid); // Saca los datos del usuario de firebase 
+    // var_dump($user);
+    $nameUser = $user->displayName; // Guardo el email del usuario
+    // var_dump($emailUser);
+    return $nameUser;
+
+
+  }
 }

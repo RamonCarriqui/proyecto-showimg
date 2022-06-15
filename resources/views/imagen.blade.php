@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\ProfileController;
 
 // echo ProfileController::getName();
 $emailUser = ProfileController::getEmail();
+$nameUser = ProfileController::getName();
+
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -25,11 +27,10 @@ $emailUser = ProfileController::getEmail();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/imagenes.js') }}" defer></script>
 
-    
-    <!-- Scripts Firebase -->
-    <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script> 
-    <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>    
 
+    <!-- Scripts Firebase -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -43,7 +44,8 @@ $emailUser = ProfileController::getEmail();
 
 </head>
 
-<body>
+<!-- Al cargar el body se trae todos los comentarios de la imagen seleccionada -->
+<body onload="traerComentarios('{{$id}}')"> 
     <header>
         @include('layouts.header_principal')
     </header>
@@ -83,39 +85,29 @@ $emailUser = ProfileController::getEmail();
                 </div>
             </div>
             <h1 id="recomendados">Comentarios</h1>
-            <!-- Maquetación de comentarios -->
             <div>
-                <?php
-
-                // $docRef = $db->collection('samples/php/cities')->document($id);
-                // $snapshot = $docRef->snapshot();
-
-                // if ($snapshot->exists()) {
-                //     printf('Document data:' . PHP_EOL);
-                //     print_r($snapshot->data());
-                // } else {
-                //     printf('Document %s does not exist!' . PHP_EOL, $snapshot->id());
-                // }
-                ?>
-
-
+                <!-- Maquetación de comentarios -->
+                <div id="seccionComentarios">
+                <!--Aqui se maquetan los comentarios a traves de imagenes.js-->
+                </div>
+                <!-- Enviar comentario -->
+                <h2>Enviar comentario</h2>
+                <form id="dataForm">
+                    <!-- Datos de la imagen -->
+                    <input type="hidden" name=id value={{$id}}>
+                    <!-- Datos del comentario -->
+                    <label to="emailUsuario">
+                        <h6>Nombre de usuario:</h6> {{$nameUser}}
+                    </label>
+                    <input type="hidden" name="nameUser" value={{$nameUser}}>
+                    <input type="hidden" name="emailUsuario" value={{$emailUser}}> 
+                    <label to="comentUsuario">
+                        <h5>Comentario:</h5>
+                    </label>
+                    <textarea rows="4" cols="50" id="comentUsuario" name="comentUsuario"></textarea>
+                    <button onclick="enviarComentario()"><i class='bx bx-comment-detail bx-flip-horizontal' ></i> Enviar comentario</button>
+                </form>
             </div>
-            <!-- Enviar comentario -->
-            <h2>Enviar comentario</h2>
-            <form id="dataForm">
-                <!-- Datos de la imagen -->
-                <input type="hidden" name=id value={{$id}}>
-                <!-- Datos del comentario -->
-                <label to="emailUsuario">
-                    <h6>Email de usuario:</h6> {{$emailUser}}
-                </label>
-                <input type="hidden" name="emailUsuario" value={{$emailUser}}> <!-- El readonly hace que el usuario no pueda modificarlo, solo leer -->
-                <label to="comentUsuario">
-                    <h5>Comentario:</h5>
-                </label>
-                <textarea rows="4" cols="50" id="comentUsuario" name="comentUsuario"></textarea>
-            </form>
-            <button onclick="enviarComentario()">asdasdasd <i class='bx bx-download'></i></button>
         </div>
 
     </main>
