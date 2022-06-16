@@ -45,7 +45,7 @@ $nameUser = ProfileController::getName();
 </head>
 
 <!-- Al cargar el body se trae todos los comentarios de la imagen seleccionada -->
-<body onload="traerComentarios('{{$id}}')"> 
+<body onload="traerInfoImg('{{$id}}', '{{$emailUser}}')"> 
     <header>
         @include('layouts.header_principal')
     </header>
@@ -80,7 +80,8 @@ $nameUser = ProfileController::getName();
                     </ul>
                 </div>
                 <div class="botones">
-                    <button>Añadir a favoritos <i class='bx bx-heart'></i></button>
+                    <button id="anadirFav" style="display: none;" onclick="anadirFav( '{{$src}}', '{{$nombre}}')">Añadir a favoritos <i class='bx bx-heart'></i></button>
+                    <button id="quitarFav" style="display: none;" onclick="quitarFav('{{$id}}', '{{$emailUser}}')">Quitar de favoritos <i class='bx bxs-heart'></i></button>
                     <button onclick="downloadImage('{{$src}}', '{{$nombre}}')">Descargar <i class='bx bx-download'></i></button>
                 </div>
             </div>
