@@ -227,6 +227,54 @@ input:-moz-placeholder {
     height: 5em;
 }
 
+#drop-down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+#content {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid lightgrey; 
+    border-radius: 2px;
+    display: none;
+    flex-direction: column;
+    margin-top: 1em;
+    position: absolute;
+    right: 1%;
+    width: 30%;
+    z-index: 1;
+}
+
+#content>li {
+    padding-top: 3em;
+    padding: 1em;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    flex-direction: row-reverse;
+    font-size: 14px;
+}
+
+#content>.nav-item>a {
+    padding: 0em;
+    text-decoration: none;
+}
+
+#title-profile {
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right;
+    color: black;
+}
+
+#perfil-collapse:focus #content,
+#content:focus,
+#title-profile:focus+#content {
+    display: flex;
+}
+
 
 /**** -Fin de estilos Header.blade.php- ****/
 
@@ -243,7 +291,7 @@ input:-moz-placeholder {
 @media (min-width: 768px) {
     #main-container {
         display: grid;
-        grid-template-areas: "imagen informacion " "recomendados recomendados " "result result ";
+        grid-template-areas: "imagen informacion " "sectionComentarios sectionComentarios " "result result ";
     }
 }
 
@@ -352,12 +400,25 @@ input:-moz-placeholder {
     background-color: #f0eaea;
 }
 
-#main-container #recomendados {
+#sectionComentarios {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    grid-area: recomendados;
+    grid-area: sectionComentarios;
     text-align: center;
     margin: 1em;
+}
+
+#bloqueComentarios{
+    margin-left: 2rem;
+    width: 20rem;
+}
+
+#comentarioEscrito{
+    display: flex;
+    flex-wrap: wrap;
+}
+#dataform{
+    display: flex;
 }
 
 
@@ -395,6 +456,82 @@ input:-moz-placeholder {
 
 
 /**** -Fin estilos para todos login.blade.php y register.blade.php- ****/
+
+/** -Inicio de estilos de Profile.blade.php- **/
+
+#sectionFav{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    grid-area: sectionComentarios;
+    text-align: center;
+    margin: 1em;
+}
+
+#imgFav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.imagenFav {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0.75em;
+    margin-bottom: 0.5em;
+    padding: 0.05em;
+    
+}
+
+.opciones {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: #c4c2c2;
+    padding: 0.5em;
+    
+}
+.imagenFav > img {
+    width: 300px;
+    height: 200px;
+}
+@media (min-width: 768px) {
+    #imgFav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-around;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1024px) {
+    .imagenFav {
+        width: 25.75em;
+        padding: 0.5em;
+        margin: 2em;
+    }
+}
+/* @media (min-width: 768px) and (max-width: 1023px) {
+    .imagenFav {
+        height: 35vh;
+        width: 57vw;
+    }
+} */
+@media (min-width: 768px) {
+    .opciones {
+        display: flex;
+    }
+    .imagenFav > img {
+        width: 353px;
+        height: 300px;
+    }
+}
+/** -Fin de estilos de Footer.blade.php- **/
+
 
 
 /**** -Estilos de Footer.blade.php- ****/

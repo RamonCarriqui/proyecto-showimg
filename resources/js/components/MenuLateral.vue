@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="aside-principal">
+        <div id="menuNotCollapse" class="aside-principal">
             <div class="aside-seccion">
                 <p class="subtitulo">Descubre</p>
                 <ul>
@@ -37,6 +37,53 @@
                 </ul>
             </div>
         </div>
+        <div class="d-flex justify-content-center w-100">
+            <button id="menuCollapse" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon">Menu Lateral</span>
+            <!-- Authentication Links -->
+                <div class="aside-principal">
+                    <ul id="drop-down">
+                        <ul id="content">
+                            <div class="aside-seccion">
+                                <p class="subtitulo">Descubre</p>
+                                <ul>
+                                    <li>
+                                        <button class="categoria" onclick="aleatorio()">
+                                            <box-icon name="shuffle"></box-icon>
+                                            &nbsp;&nbsp;Aleatorio
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="aside-seccion">
+                                <p class="subtitulo">Colores</p>
+                                <ul>
+                                    <li><a href="/?query=blanco" class="categoria"><p class="color white"></p>Blanco</a></li>
+                                    <li><a href="/?query=negro" class="categoria"><p class="color black"></p>Negro</a></li>
+                                    <li><a href="/?query=rojo" class="categoria"><p class="color red"></p>Rojo</a></li>
+                                    <li><a href="/?query=naranja" class="categoria"><p class="color orange"></p>Naranja</a></li>
+                                    <li><a href="/?query=verde" class="categoria"><p class="color green"></p> Verde</a> </li>
+                                    <li><a href="/?query=morado" class="categoria"><p class="color purple"></p> Morado</a></li>
+                                    <li><a href="/?query=azul" class="categoria"><p class="color blue"></p>Azul</a></li>
+                                    <li><a href="/?query=amarillo" class="categoria"><p class="color yellow"></p>Amarillo</a></li>
+                                </ul>
+                            </div>
+                            <div class="aside-seccion">
+                                <p class="subtitulo">Tags</p>
+                                <ul>
+                                    <li><a href="/?query=animales" class="categoria"><i class="bx bxs-cat icon"></i>Animales</a></li>
+                                    <li><a href="/?query=vehiculos" class="categoria"><i class="bx bxs-car icon"></i>Vehiculos</a></li>
+                                    <li><a href="/?query=juegos" class="categoria"><i class="bx bxs-joystick icon"></i>Juegos</a></li>
+                                    <li><a href="/?query=naturaleza" class="categoria"><i class="bx bxs-florist icon"></i>Naturaleza</a> </li>
+                                    <li><a href="/?query=peliculas" class="categoria"><i class="bx bxs-camera-movie icon"></i>Peliculas</a></li>
+                                    <li><a href="/?query=ciudad" class="categoria"><i class="bx bxs-business icon"></i> Ciudad</a> </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </ul>
+                </div>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -49,6 +96,69 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
+
+.navbar-toggler-icon{
+    display: flex;
+    justify-self: center;
+    width: 100%;
+}
+#drop-down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+#content {
+    background-color: rgb(243, 231, 231);
+    border: 1px solid rgb(148, 148, 148); 
+    border-radius: 2px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+#content>li {
+    padding-top: 3em;
+    padding: 1em;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    flex-direction: row-reverse;
+    font-size: 14px;
+}
+
+#content>.nav-item>a {
+    padding: 0em;
+    text-decoration: none;
+}
+
+#title-profile {
+    font-weight: bold;
+    text-decoration: none;
+    text-align: right;
+    color: black;
+}
+
+#menuCollapse:focus #content,
+#content:focus,
+#title-profile:focus+#content {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    #menuNotCollapse {
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+    #menuCollapse {
+        display: none;
+    }
+}
 .aside-principal {
     font-size: 20px;
     font-weight: 100;
@@ -64,10 +174,11 @@ export default {
         width: 100vw;
 
         .subtitulo {
-            text-align: center;
             font-size: 18px;
+            margin-left: -2em ;
+            padding: 0.5em;
+            text-align: center;
             text-decoration: underline;
-            padding: 0.25em;
         }
         ul {
             margin: 0;
@@ -75,7 +186,6 @@ export default {
         }
         li {
             list-style: none;
-            margin-left: 5em;
             button {
                 margin: 0px;
             }

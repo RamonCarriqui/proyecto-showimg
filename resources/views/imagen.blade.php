@@ -85,29 +85,30 @@ $nameUser = ProfileController::getName();
                     <button onclick="downloadImage('{{$src}}', '{{$nombre}}')">Descargar <i class='bx bx-download'></i></button>
                 </div>
             </div>
-            <h1 id="recomendados">Comentarios</h1>
-            <div>
+            <h1 id="sectionComentarios">Comentarios</h1>
+            <div id="bloqueComentarios">
                 <!-- Maquetación de comentarios -->
                 <div id="seccionComentarios">
-                <!--Aqui se maquetan los comentarios a traves de imagenes.js-->
+                    <!--Aqui se maquetan los comentarios a traves de imagenes.js-->
                 </div>
                 <!-- Enviar comentario -->
                 <h2>Enviar comentario</h2>
-                <form id="dataForm">
-                    <!-- Datos de la imagen -->
-                    <input type="hidden" name=id value={{$id}}>
-                    <!-- Datos del comentario -->
-                    <label to="emailUsuario">
-                        <h6>Nombre de usuario:</h6> {{$nameUser}}
-                    </label>
-                    <input type="hidden" name="nameUser" value={{$nameUser}}>
-                    <input type="hidden" name="emailUsuario" value={{$emailUser}}> 
-                    <label to="comentUsuario">
-                        <h5>Comentario:</h5>
-                    </label>
-                    <textarea rows="4" cols="50" id="comentUsuario" name="comentUsuario"></textarea>
-                    <button onclick="enviarComentario()"><i class='bx bx-comment-detail bx-flip-horizontal' ></i> Enviar comentario</button>
-                </form>
+
+                <div id="comentarioescrito">
+                    <form id="dataForm">
+                        <!-- Datos de la imagen -->
+                        <input type="hidden" name=id value={{$id}}>
+                        <!-- Datos del comentario -->
+                        <label to="emailUsuario">
+                        </label>
+                        <input type="hidden" name="nameUser" value={{$nameUser}}>
+                        <input type="hidden" name="emailUsuario" value={{$emailUser}}>
+                        <label to="comentUsuario">
+                        </label>
+                        <textarea rows="4" cols="50" id="comentUsuario" name="comentUsuario"></textarea>
+                        <button onclick="enviarComentario()"><i class='bx bx-comment-detail bx-flip-horizontal'></i> Enviar comentario</button>
+                    </form>
+                </div>
             </div>
         </div>
 

@@ -11,7 +11,7 @@ $emailUser = ProfileController::getEmail();
 
 <body onload="traerFavs('{{$emailUser}}')">
   <header>
-    @extends('layouts.header_secundario')
+    @extends('layouts.header_profile')
   </header>
 
   @section('content')
@@ -46,8 +46,8 @@ $emailUser = ProfileController::getEmail();
 
     <div class="row justify-content-center">
       <div class="col-lg-4">
-        <h4>Profile Information</code></h5>
-          <span class="text-justify mb-3" style="padding-top:-3px;">Update your account's profile information and email address.<br><br> When You change your email ,you need to verify your email else the account will be blocked</span>
+        <h4>Mi Perfil</code></h5>
+          <span class="text-justify mb-3" style="padding-top:-3px;">Actualiza tus datos personales.<br><br>Cuando actualices tu correo tendrás que verificarlo de nuevo, o tu cuenta será eliminada.</span>
       </div>
 
       <div class="col-lg-8 text-center pt-0">
@@ -57,7 +57,7 @@ $emailUser = ProfileController::getEmail();
           {!! Form::open() !!}
 
           <div class="form-group px-3">
-            {!! Form::label('displayName', 'Name ',['class'=>'col-12 text-left pl-0']) !!}
+            {!! Form::label('displayName', 'Nombre ',['class'=>'col-12 text-left pl-0']) !!}
             {!! Form::text('displayName', null, ['class'=>' col-md-8 form-control'])!!}
 
             {!! Form::label('email', 'Email ',['class'=>'pt-3 col-12 text-left pl-0']) !!}
@@ -67,7 +67,7 @@ $emailUser = ProfileController::getEmail();
 
           <div class="form-group row mb-0 mr-4">
             <div class="col-md-8 offset-md-4 text-right">
-              {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+              {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
             </div>
           </div>
 
@@ -75,32 +75,33 @@ $emailUser = ProfileController::getEmail();
       </div>
 
     </div>
-    <div class="border-bottom border-grey"></div>
-    <div id="imgFav"></div>
-    <div class="border-bottom border-grey"></div>
+
+    <h1 id="sectionFav">Mis Favoritos</h1>
+    <div id="imgFav"></div> <!-- Aquí se maquetan las imágenes favoritas -->
+    <hr>
 
     <div class="row justify-content-center pt-5">
       <div class="col-lg-4">
-        <h4>Update Password</code></h5>
-          <span class="text-justify" style="padding-top:-3px;">Ensure your account is using a long, random password to stay secure.</span>
+        <h4>Actualizar Contraseña</code></h5>
+          <span class="text-justify" style="padding-top:-3px;">Crea siempre una contraseña larga y con distintos caracteres para aumentar su seguridad.</span>
       </div>
 
       <div class="col-lg-8 text-center pt-0">
         <div class="card py-4 mb-5 mt-md-3 bg-white rounded" style="box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175)">
 
           <div class="form-group px-3">
-            {!! Form::label('new_password', 'New Password:',['class'=>'col-12 text-left pl-0']) !!}
+            {!! Form::label('new_password', 'Nueva Contraseña:',['class'=>'col-12 text-left pl-0']) !!}
             {!! Form::password('new_password', ['class'=>'col-md-8 form-control'])!!}
           </div>
 
           <div class="form-group px-3">
-            {!! Form::label('new_confirm_password', 'Confirm Password:',['class'=>'col-12 text-left pl-0']) !!}
+            {!! Form::label('new_confirm_password', 'Confirmar Contraseña:',['class'=>'col-12 text-left pl-0']) !!}
             {!! Form::password('new_confirm_password', ['class'=>'col-md-8 form-control'])!!}
           </div>
 
           <div class="form-group row mb-0 mr-4">
             <div class="col-md-8 offset-md-4 text-right">
-              {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}
+              {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
             </div>
           </div>
           {!! Form::close() !!}
@@ -113,21 +114,20 @@ $emailUser = ProfileController::getEmail();
 
     <div class="row justify-content-center pt-5">
       <div class="col-lg-4">
-        <h4>Delete Account</code></h5>
-          <span class="text-justify" style="padding-top:-3px;">Permanently delete your account.</span>
+        <h4>Eliminar cuenta</code></h5>
+          <span class="text-justify" style="padding-top:-3px;">Borra tu cuenta permanentemente.</span>
       </div>
 
       <div class="col-lg-8 pt-0">
         <div class="card py-4 mb-5 mt-md-3 bg-white rounded" style="box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175)">
           <div class="text-left px-3">
-            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
           </div>
 
           {!! Form::open(['method'=>'DELETE', 'action' =>['App\Http\Controllers\Auth\ProfileController@destroy',$user->uid]]) !!}
           {!! Form::open() !!}
           <div class="form-group row mb-0 mr-4 pt-4 px-3">
             <div class="col-md-8 offset-l-4 text-left">
-              {!! Form::submit('Delete Account', ['class'=>'btn btn-danger pl-3']) !!}
+              {!! Form::submit('Eliminar Cuenta', ['class'=>'btn btn-danger pl-3']) !!}
             </div>
           </div>
           {!! Form::close() !!}
