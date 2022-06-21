@@ -1,8 +1,10 @@
 <?php
+
 use App\Http\Controllers\Auth\ProfileController;
 
 $emailUser = ProfileController::getEmail();
 ?>
+
 <head>
   <!-- Scripts Firebase -->
   <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
@@ -65,19 +67,19 @@ $emailUser = ProfileController::getEmail();
 
           </div>
 
-          <div class="form-group row mb-0 mr-4">
+          <div class="form-group row mb-0 mr-4 pt-4">
             <div class="col-md-8 offset-md-4 text-right">
               {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
             </div>
           </div>
-
+          {!! Form::close() !!}
         </div>
       </div>
 
     </div>
-
+    
     <h1 id="sectionFav">Mis Favoritos</h1>
-    <div id="imgFav"></div> <!-- Aquí se maquetan las imágenes favoritas -->
+    <div id="imgFav"></div> <!--Aquí se maquetan las imágenes favoritas-->
     <hr>
 
     <div class="row justify-content-center pt-5">
@@ -88,7 +90,8 @@ $emailUser = ProfileController::getEmail();
 
       <div class="col-lg-8 text-center pt-0">
         <div class="card py-4 mb-5 mt-md-3 bg-white rounded" style="box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175)">
-
+          {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['App\Http\Controllers\Auth\ProfileController@update',$user->uid]]) !!}
+          {!! Form::open() !!}
           <div class="form-group px-3">
             {!! Form::label('new_password', 'Nueva Contraseña:',['class'=>'col-12 text-left pl-0']) !!}
             {!! Form::password('new_password', ['class'=>'col-md-8 form-control'])!!}
@@ -99,7 +102,7 @@ $emailUser = ProfileController::getEmail();
             {!! Form::password('new_confirm_password', ['class'=>'col-md-8 form-control'])!!}
           </div>
 
-          <div class="form-group row mb-0 mr-4">
+          <div class="form-group row mb-0 mr-4 pt-4">
             <div class="col-md-8 offset-md-4 text-right">
               {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
             </div>
@@ -119,14 +122,14 @@ $emailUser = ProfileController::getEmail();
       </div>
 
       <div class="col-lg-8 pt-0">
-        <div class="card py-4 mb-5 mt-md-3 bg-white rounded" style="box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175)">
+        <div class="card py-4 mb-5 mt-md-3 bg-white rounded align-items-center" style="box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175)">
           <div class="text-left px-3">
           </div>
 
           {!! Form::open(['method'=>'DELETE', 'action' =>['App\Http\Controllers\Auth\ProfileController@destroy',$user->uid]]) !!}
           {!! Form::open() !!}
           <div class="form-group row mb-0 mr-4 pt-4 px-3">
-            <div class="col-md-8 offset-l-4 text-left">
+            <div class="col-md-8 offset-l-4 text-center">
               {!! Form::submit('Eliminar Cuenta', ['class'=>'btn btn-danger pl-3']) !!}
             </div>
           </div>

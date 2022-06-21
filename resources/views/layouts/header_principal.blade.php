@@ -33,7 +33,7 @@
                     <div class="flexsearch--wrapper">
                         <form id="myForm" class="flexsearch--form">
                             <div class="flexsearch--input-wrapper">
-                                <input id="search" class="flexsearch--input" type="text" onclick="this.value = null" placeholder="search">
+                                <input id="search" class="flexsearch--input" type="text" onclick="this.value = null" placeholder="Buscar...">
                                 <button class="flexsearch--submit" type="submit">&#10140;</button>
                             </div>
                         </form>
@@ -44,9 +44,10 @@
                     <!-- Authentication Links -->
                     @guest
                     @if (Route::has('login'))
-                    <li class="nav-item d-flex flex-direction-row align-item-center">
-                        <a class='bx bxs-user-circle' href="{{ route('login') }}"></a>
-
+                    <li class="nav-item" >
+                        <a class='bx bxs-user-circle  d-flex flex-direction-row align-items-center' href="{{ route('login') }}">
+                            <span style="font-size: 20px; margin-left:0.5em">Iniciar sesión</span>
+                        </a>
                     </li>
                     @endif
 
@@ -59,13 +60,13 @@
                     @else
                     <li class="nav-item d-flex align-items-center">
                         <i class='bx bx-id-card' style="font-size: 20px"></i>
-                        <a class="nav-link text-dark" href="home/profile">{{ __('Profile') }}</a>
+                        <a class="nav-link text-dark" href="home/profile">{{ __('Perfil') }}</a>
                     </li>
 
                     <li class="nav-item d-flex align-items-center">
                         <a class="nav-link text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Cerrar Sesión') }}
                         </a>
                         <i class='bx bx-log-out' style="font-size: 20px"></i>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

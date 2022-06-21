@@ -39,7 +39,7 @@
                     <div class="flexsearch--wrapper">
                         <form id="myForm" class="flexsearch--form">
                             <div class="flexsearch--input-wrapper">
-                                <input id="search" class="flexsearch--input" type="text" onclick="this.value = null" placeholder="search">
+                                <input id="search" class="flexsearch--input" type="text" onclick="this.value = null" placeholder="Buscar...">
                                 <button class="flexsearch--submit" type="submit">&#10140;</button>
                             </div>
                         </form>
