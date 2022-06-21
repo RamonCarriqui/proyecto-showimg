@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Correo o contraseña equivoados.',
+    'failed' => 'Correo o contraseña equivocados.',
     'password' => 'La contraseña no coincide.',
     'throttle' => 'Demasiados intentos de inicio de sesión, espere unos segundos.',
 
